@@ -1,0 +1,16 @@
+# File generati dal build di Maven
+target/
+
+# Documentazione generata da Doxygen (si rigenera con il comando doxygen)
+docs/doxygen/
+
+# Impostazioni personali degli IDE (ognuno apre il progetto dal pom.xml)
+.idea/
+*.iml
+nbproject/
+nbactions.xml
+.vscode/
+
+# File di sistema
+.DS_Store
+Thumbs.db
