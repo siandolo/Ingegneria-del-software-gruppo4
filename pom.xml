@@ -17,12 +17,23 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <!-- JavaFX è già dentro il JDK 8, quindi non servono dipendenze -->
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
+            </plugin>
+            <!-- permette di avviare l'applicazione con: mvnw compile exec:java -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>it.unisa.diem.softeng.gruppo4.App</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
