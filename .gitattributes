@@ -1,0 +1,6 @@
+# Fine riga coerenti tra Windows, Linux e macOS
+* text=auto
+
+# Lo script del wrapper per Linux/macOS deve avere fine riga Unix, quello per Windows CRLF
+mvnw text eol=lf
+*.cmd text eol=crlf
