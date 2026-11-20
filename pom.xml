@@ -15,9 +15,19 @@
         <!-- il progetto si compila con il JDK 8 (Oracle 8u441, che include JavaFX) -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <junit.version>5.11.3</junit.version>
     </properties>
 
-    <!-- JavaFX è già dentro il JDK 8, quindi non servono dipendenze -->
+    <!-- JavaFX è già dentro il JDK 8, quindi non serve come dipendenza -->
+    <dependencies>
+        <!-- JUnit 5 serve solo per compilare ed eseguire i test -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
@@ -25,6 +35,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
+            </plugin>
+            <!-- esegue i test JUnit con: mvnw test -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
             </plugin>
             <!-- permette di avviare l'applicazione con: mvnw compile exec:java -->
             <plugin>
