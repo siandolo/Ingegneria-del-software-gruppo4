@@ -1,0 +1,33 @@
+# Configurazione Doxygen del progetto Prenotazione Aule.
+# Le opzioni non indicate qui usano i valori predefiniti di Doxygen.
+# Per generare la documentazione, dalla cartella principale del progetto: doxygen Doxyfile
+
+# Informazioni sul progetto
+PROJECT_NAME           = "Prenotazione Aule"
+PROJECT_BRIEF          = "Gestione di docenti, aule e prenotazioni di un dipartimento universitario"
+PROJECT_NUMBER         = 1.0
+
+# Dove viene scritta la documentazione (cartella esclusa da Git perché si rigenera)
+OUTPUT_DIRECTORY       = docs/doxygen
+OUTPUT_LANGUAGE        = English
+
+# Sorgenti da documentare: solo il codice dell'applicazione, non i test
+INPUT                  = src/main/java
+FILE_PATTERNS          = *.java
+RECURSIVE              = YES
+OPTIMIZE_OUTPUT_JAVA   = YES
+
+# Si documenta l'interfaccia pubblica delle classi, non i dettagli privati
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+
+# Avvisi utili per accorgersi di elementi pubblici non documentati
+WARN_IF_UNDOCUMENTED   = YES
+WARN_NO_PARAMDOC       = YES
+
+# Formati di uscita
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+HAVE_DOT               = NO
