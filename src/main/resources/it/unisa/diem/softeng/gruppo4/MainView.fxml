@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+
+<!-- Vista principale provvisoria: le sezioni verranno aggiunte con l'implementazione -->
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <Label text="Prenotazione Aule" style="-fx-font-size: 20px; -fx-font-weight: bold;">
+            <padding>
+                <Insets top="16" right="16" bottom="16" left="16"/>
+            </padding>
+        </Label>
+    </top>
+    <center>
+        <Label text="Gestione di docenti, aule e prenotazioni"/>
+    </center>
+</BorderPane>
