@@ -9,7 +9,7 @@ PROJECT_NUMBER         = 1.0
 
 # Dove viene scritta la documentazione (cartella esclusa da Git perché si rigenera)
 OUTPUT_DIRECTORY       = docs/doxygen
-OUTPUT_LANGUAGE        = English
+OUTPUT_LANGUAGE        = Italian
 
 # Sorgenti da documentare: solo il codice dell'applicazione, non i test
 INPUT                  = src/main/java

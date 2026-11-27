@@ -1,0 +1,33 @@
+@startuml diagramma-2-docenti
+' Diagramma dei casi d'uso 2: gestione dei docenti
+left to right direction
+skinparam shadowing false
+skinparam dpi 150
+skinparam defaultFontName "DejaVu Sans"
+skinparam defaultFontSize 13
+skinparam titleFontSize 16
+skinparam actorBorderColor #333333
+skinparam actorBackgroundColor #FFFFFF
+skinparam usecaseBorderColor #333333
+skinparam usecaseBackgroundColor #FFFFFF
+skinparam rectangleBorderColor #888888
+skinparam arrowColor #333333
+
+title Diagramma 2 – Gestione dei docenti
+
+actor "Impiegato della\nsegreteria" as Impiegato
+
+rectangle "Prenotazione Aule" {
+  usecase "UC6 Inserisci docente" as UC6
+  usecase "UC7 Modifica docente" as UC7
+  usecase "UC8 Elimina docente" as UC8
+  usecase "UC9 Visualizza elenco docenti" as UC9
+  usecase "UC10 Cerca docente" as UC10
+}
+
+Impiegato -- UC6
+Impiegato -- UC7
+Impiegato -- UC8
+Impiegato -- UC9
+Impiegato -- UC10
+@enduml
