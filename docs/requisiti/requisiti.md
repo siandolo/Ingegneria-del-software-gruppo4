@@ -579,85 +579,85 @@ Ogni caso d'uso segue lo schema: nome, attori partecipanti, precondizioni, postc
 
 ## 5. Tracciabilità
 
-La matrice collega ogni requisito ai casi d'uso che lo realizzano e ai requisiti correlati. Le colonne Componenti e Casi di test sono vuote: si compilano durante la progettazione e il testing, e la matrice va aggiornata alla fine di ogni fase.
+La matrice collega ogni requisito alla sua fonte, ai casi d'uso che lo realizzano e ai requisiti correlati. La colonna Fonte indica da dove nasce il requisito: **Specifica** se deriva direttamente dalla descrizione delle funzionalità richieste, il codice di un'assunzione (A1–A16) se deriva da una scelta della sezione 1.5, **Analisi** se è stato individuato durante l'analisi per completare la specifica (ad esempio la gestione degli errori o l'interfaccia). Le colonne Componenti e Casi di test sono vuote: si compilano durante la progettazione e il testing, e la matrice va aggiornata alla fine di ogni fase.
 
-| Requisito | Casi d'uso | Componenti (package / classi / metodi) | Casi di test | Requisiti correlati |
-|---|---|---|---|---|
-| BF1 | UC1–UC10 |  |  | FI1.1–FI1.12, FI2.1–FI2.11 |
-| BF2 | UC11, UC12, UC13, UC15 |  |  | FI3.1, FI3.2, FI3.4, FI3.5, FI3.7, FI3.8 |
-| BF3 | UC12, UC14, UC15 |  |  | FI3.3, FI3.6, FI3.9 |
-| BF4 | UC16 |  |  | FI3.10–FI3.12 |
-| BF5 | UC17, UC18 |  |  | FI3.13, FI3.14 |
-| BF6 | — (automatico) |  |  | FI4.1–FI4.5 |
-| FI1.1 | UC1 |  |  | ED1 |
-| FI1.2 | UC1 |  |  | ED1, IU3 |
-| FI1.3 | UC1, UC2 |  |  | IU3 |
-| FI1.4 | UC2 |  |  | FI1.3 |
-| FI1.5 | UC3 |  |  | IU5 |
-| FI1.6 | UC3 |  |  | FI1.7, IU5 |
-| FI1.7 | UC3 |  |  | FI1.6, ED6 |
-| FI1.8 | UC4 |  |  | IU2 |
-| FI1.9 | UC5 |  |  | FI1.10, FI1.11 |
-| FI1.10 | UC5 |  |  | FI1.9 |
-| FI1.11 | UC5 |  |  | FI3.1 |
-| FI1.12 | UC2 |  |  | FI1.4, ED3 |
-| FI2.1 | UC6 |  |  | ED2 |
-| FI2.2 | UC6, UC7 |  |  | ED2, IU3 |
-| FI2.3 | UC6, UC7 |  |  | IU3 |
-| FI2.4 | UC7 |  |  | FI2.2, FI2.3 |
-| FI2.5 | UC8 |  |  | IU5 |
-| FI2.6 | UC8 |  |  | FI2.7, IU5 |
-| FI2.7 | UC8 |  |  | FI2.6, ED6 |
-| FI2.8 | UC9 |  |  | IU2 |
-| FI2.9 | UC10 |  |  | FI2.10 |
-| FI2.10 | UC10 |  |  | FI2.9 |
-| FI2.11 | UC7 |  |  | FI2.4, ED3 |
-| FI3.1 | UC11 |  |  | FI1.11, FI3.7, IU9 |
-| FI3.2 | UC12, UC13 |  |  | ED3, IU6, IU7 |
-| FI3.3 | UC12, UC14 |  |  | ED4, FI3.9 |
-| FI3.4 | UC12 |  |  | IU3 |
-| FI3.5 | UC12 |  |  | IU3 |
-| FI3.6 | UC14 |  |  | FI3.3 |
-| FI3.7 | UC15 |  |  | IU4 |
-| FI3.8 | UC15 |  |  | IU4 |
-| FI3.9 | UC14, UC15 |  |  | FI3.7, FI3.8, IU4 |
-| FI3.10 | UC16 |  |  | IU2, IU8 |
-| FI3.11 | UC16 |  |  | FI3.10 |
-| FI3.12 | UC16 |  |  | FI3.10 |
-| FI3.13 | UC17 |  |  | IU5 |
-| FI3.14 | UC18 |  |  | ED4, IU5 |
-| FI4.1 | — (automatico) |  |  | NF3, NF11 |
-| FI4.2 | — (avvio) |  |  | NF2 |
-| FI4.3 | — (avvio) |  |  | FI4.2 |
-| FI4.4 | — (avvio) |  |  | NF4 |
-| FI4.5 | — (automatico) |  |  | FI4.1 |
-| ED1 | UC1, UC2, UC4 |  |  | FI1.1 |
-| ED2 | UC6, UC7, UC9 |  |  | FI2.1 |
-| ED3 | UC12, UC16 |  |  | FI1.12, FI2.11, FI3.2 |
-| ED4 | UC14, UC18 |  |  | FI3.3, FI3.14 |
-| ED5 | UC12 |  |  | FI3.2 |
-| ED6 | UC16, UC18 |  |  | FI1.7, FI2.7, FI3.14 |
-| IU1 | UC4, UC9, UC16 |  |  | NF5 |
-| IU2 | UC4, UC9, UC16 |  |  | FI1.8, FI2.8, FI3.10 |
-| IU3 | UC1, UC2, UC5, UC6, UC7, UC10, UC11, UC12, UC14 |  |  | FI1.3, FI2.3, FI3.4 |
-| IU4 | UC13, UC14, UC15 |  |  | FI3.7–FI3.9 |
-| IU5 | UC3, UC8, UC17, UC18 |  |  | FI1.5, FI2.5, FI3.13, FI3.14 |
-| IU6 | UC12 |  |  | FI3.2 |
-| IU7 | UC11, UC12 |  |  | FI3.2 |
-| IU8 | UC16 |  |  | ED4 |
-| IU9 | UC11, UC12 |  |  | FI3.1 |
-| IU10 | UC4, UC9, UC16 |  |  | IU2 |
-| NF1 | UC11, UC13–UC16 |  |  | NF2 |
-| NF2 | — (avvio) |  |  | FI4.2 |
-| NF3 | — (tutto il sistema) |  |  | FI4.1 |
-| NF4 | — (tutto il sistema) |  |  | FI4.4 |
-| NF5 | — (tutto il sistema) |  |  | IU1 |
-| NF6 | — (tutto il sistema) |  |  | — |
-| NF7 | — (tutto il sistema) |  |  | NF12 |
-| NF8 | — (tutto il sistema) |  |  | NF10 |
-| NF9 | — (tutto il sistema) |  |  | — |
-| NF10 | — (tutto il sistema) |  |  | NF8 |
-| NF11 | — (tutto il sistema) |  |  | FI4.1 |
-| NF12 | — (tutto il sistema) |  |  | NF7 |
-| NF13 | — (tutto il sistema) |  |  | — |
-| NF14 | — (tutto il sistema) |  |  | NF11 |
+| Requisito | Fonte | Casi d'uso | Componenti (package / classi / metodi) | Casi di test | Requisiti correlati |
+|---|---|---|---|---|---|
+| BF1 | Specifica | UC1–UC10 |  |  | FI1.1–FI1.12, FI2.1–FI2.11 |
+| BF2 | Specifica | UC11, UC12, UC13, UC15 |  |  | FI3.1, FI3.2, FI3.4, FI3.5, FI3.7, FI3.8 |
+| BF3 | Specifica | UC12, UC14, UC15 |  |  | FI3.3, FI3.6, FI3.9 |
+| BF4 | Specifica | UC16 |  |  | FI3.10–FI3.12 |
+| BF5 | Specifica | UC17, UC18 |  |  | FI3.13, FI3.14 |
+| BF6 | Specifica, A16 | — (automatico) |  |  | FI4.1–FI4.5 |
+| FI1.1 | Specifica | UC1 |  |  | ED1 |
+| FI1.2 | Specifica | UC1 |  |  | ED1, IU3 |
+| FI1.3 | A12 | UC1, UC2 |  |  | IU3 |
+| FI1.4 | Specifica, A7 | UC2 |  |  | FI1.3 |
+| FI1.5 | Specifica | UC3 |  |  | IU5 |
+| FI1.6 | A8 | UC3 |  |  | FI1.7, IU5 |
+| FI1.7 | A8 | UC3 |  |  | FI1.6, ED6 |
+| FI1.8 | Specifica, A15 | UC4 |  |  | IU2 |
+| FI1.9 | Specifica, A3 | UC5 |  |  | FI1.10, FI1.11 |
+| FI1.10 | Specifica, A3 | UC5 |  |  | FI1.9 |
+| FI1.11 | Specifica | UC5 |  |  | FI3.1 |
+| FI1.12 | A7 | UC2 |  |  | FI1.4, ED3 |
+| FI2.1 | Specifica | UC6 |  |  | ED2 |
+| FI2.2 | Specifica | UC6, UC7 |  |  | ED2, IU3 |
+| FI2.3 | A13 | UC6, UC7 |  |  | IU3 |
+| FI2.4 | Specifica, A7 | UC7 |  |  | FI2.2, FI2.3 |
+| FI2.5 | Specifica | UC8 |  |  | IU5 |
+| FI2.6 | A8 | UC8 |  |  | FI2.7, IU5 |
+| FI2.7 | A8 | UC8 |  |  | FI2.6, ED6 |
+| FI2.8 | Specifica | UC9 |  |  | IU2 |
+| FI2.9 | Specifica, A3 | UC10 |  |  | FI2.10 |
+| FI2.10 | Specifica, A2, A3 | UC10 |  |  | FI2.9 |
+| FI2.11 | A7 | UC7 |  |  | FI2.4, ED3 |
+| FI3.1 | Specifica, A4 | UC11 |  |  | FI1.11, FI3.7, IU9 |
+| FI3.2 | Specifica | UC12, UC13 |  |  | ED3, IU6, IU7 |
+| FI3.3 | Specifica, A5 | UC12, UC14 |  |  | ED4, FI3.9 |
+| FI3.4 | Analisi | UC12 |  |  | IU3 |
+| FI3.5 | A10 | UC12 |  |  | IU3 |
+| FI3.6 | Analisi | UC14 |  |  | FI3.3 |
+| FI3.7 | Specifica, A4 | UC15 |  |  | IU4 |
+| FI3.8 | Specifica, A4 | UC15 |  |  | IU4 |
+| FI3.9 | A5 | UC14, UC15 |  |  | FI3.7, FI3.8, IU4 |
+| FI3.10 | Specifica | UC16 |  |  | IU2, IU8 |
+| FI3.11 | Specifica | UC16 |  |  | FI3.10 |
+| FI3.12 | Specifica | UC16 |  |  | FI3.10 |
+| FI3.13 | Specifica | UC17 |  |  | IU5 |
+| FI3.14 | Specifica, A9 | UC18 |  |  | ED4, IU5 |
+| FI4.1 | Specifica, A16 | — (automatico) |  |  | NF3, NF11 |
+| FI4.2 | Specifica | — (avvio) |  |  | NF2 |
+| FI4.3 | Analisi | — (avvio) |  |  | FI4.2 |
+| FI4.4 | Analisi | — (avvio) |  |  | NF4 |
+| FI4.5 | Analisi | — (automatico) |  |  | FI4.1 |
+| ED1 | Specifica | UC1, UC2, UC4 |  |  | FI1.1 |
+| ED2 | Specifica | UC6, UC7, UC9 |  |  | FI2.1 |
+| ED3 | Specifica | UC12, UC16 |  |  | FI1.12, FI2.11, FI3.2 |
+| ED4 | Specifica | UC14, UC18 |  |  | FI3.3, FI3.14 |
+| ED5 | Specifica, A11 | UC12 |  |  | FI3.2 |
+| ED6 | A8, A9 | UC16, UC18 |  |  | FI1.7, FI2.7, FI3.14 |
+| IU1 | Analisi | UC4, UC9, UC16 |  |  | NF5 |
+| IU2 | Analisi | UC4, UC9, UC16 |  |  | FI1.8, FI2.8, FI3.10 |
+| IU3 | Analisi | UC1, UC2, UC5, UC6, UC7, UC10, UC11, UC12, UC14 |  |  | FI1.3, FI2.3, FI3.4 |
+| IU4 | Analisi | UC13, UC14, UC15 |  |  | FI3.7–FI3.9 |
+| IU5 | Analisi | UC3, UC8, UC17, UC18 |  |  | FI1.5, FI2.5, FI3.13, FI3.14 |
+| IU6 | Analisi | UC12 |  |  | FI3.2 |
+| IU7 | Analisi | UC11, UC12 |  |  | FI3.2 |
+| IU8 | Analisi | UC16 |  |  | ED4 |
+| IU9 | Analisi | UC11, UC12 |  |  | FI3.1 |
+| IU10 | Analisi | UC4, UC9, UC16 |  |  | IU2 |
+| NF1 | A14 | UC11, UC13–UC16 |  |  | NF2 |
+| NF2 | A14 | — (avvio) |  |  | FI4.2 |
+| NF3 | Analisi | — (tutto il sistema) |  |  | FI4.1 |
+| NF4 | Analisi | — (tutto il sistema) |  |  | FI4.4 |
+| NF5 | Analisi | — (tutto il sistema) |  |  | IU1 |
+| NF6 | Analisi | — (tutto il sistema) |  |  | — |
+| NF7 | Specifica | — (tutto il sistema) |  |  | NF12 |
+| NF8 | Specifica | — (tutto il sistema) |  |  | NF10 |
+| NF9 | Specifica | — (tutto il sistema) |  |  | — |
+| NF10 | Specifica | — (tutto il sistema) |  |  | NF8 |
+| NF11 | Specifica | — (tutto il sistema) |  |  | FI4.1 |
+| NF12 | Analisi | — (tutto il sistema) |  |  | NF7 |
+| NF13 | Specifica | — (tutto il sistema) |  |  | — |
+| NF14 | A1 | — (tutto il sistema) |  |  | NF11 |
