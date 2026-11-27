@@ -51,14 +51,14 @@ La descrizione delle funzionalità richieste non specifica alcuni aspetti. Il gr
 - **A3.** La ricerca per nome dell'aula e per cognome del docente trova anche corrispondenze parziali e non distingue maiuscole e minuscole (ad esempio "ross" trova "Rossi" e "Rossini"). La ricerca per codice dell'aula e per e-mail del docente richiede il valore completo, sempre senza distinguere maiuscole e minuscole.
 - **A4.** Una prenotazione inizia e finisce nello stesso giorno: non può proseguire oltre la mezzanotte, quindi è descritta da una sola data, un'ora di inizio e un'ora di fine. La fascia oraria comprende l'ora di inizio ed esclude l'ora di fine: una prenotazione che termina alle 11:00 non si sovrappone a una che inizia alle 11:00.
 - **A5.** Una prenotazione ricorrente si ripete ogni settimana, nello stesso giorno della settimana e con lo stesso orario, dalla data indicata fino alla data di termine compresa. Se anche una sola occorrenza si sovrappone a una prenotazione esistente, l'intera serie viene rifiutata: il gruppo ha preferito evitare serie incomplete inserite senza che l'impiegato se ne accorga.
-- **A6.** Le prenotazioni non si modificano: per cambiarne i dati si cancellano e si inseriscono di nuovo. Le funzionalità richieste prevedono infatti solo l'inserimento e la cancellazione delle prenotazioni.
+- **A6.** L'impiegato non modifica direttamente una prenotazione: per cambiarne i dati la cancella e la inserisce di nuovo, perché le funzionalità richieste prevedono solo l'inserimento e la cancellazione delle prenotazioni. Restano validi gli aggiornamenti automatici dovuti alla modifica dei dati di un'aula o di un docente (A7).
 - **A7.** Il codice dell'aula la identifica e non è modificabile: per correggerlo si cancella e si reinserisce l'aula. Tutti gli altri dati dell'aula e tutti i dati del docente, compresa l'e-mail istituzionale, sono modificabili. Le modifiche ai dati di un'aula valgono per tutte le sue prenotazioni, perché l'aula resta lo stesso spazio fisico. Le modifiche ai dati di un docente valgono solo per le sue prenotazioni future: quelle passate conservano i dati che il docente aveva quando si sono svolte.
 - **A8.** Un'aula o un docente con prenotazioni future non possono essere cancellati, per non lasciare prenotazioni senza aula o senza responsabile: l'impiegato deve prima cancellare quelle prenotazioni. Le prenotazioni passate vengono invece cancellate insieme all'aula o al docente.
 - **A9.** Le "prenotazioni future" di una serie sono le occorrenze che iniziano dopo il momento in cui si esegue la cancellazione; le occorrenze già iniziate o svolte restano in archivio.
 - **A10.** Non si possono inserire prenotazioni con data e ora di inizio già passate.
 - **A11.** I tipi di attività sono una lista fissa: Lezione, Esame, Seminario, Altro. "Altro" copre i casi non previsti, che sono comunque descritti dalla denominazione dell'attività.
 - **A12.** La capienza è un numero intero maggiore di zero. Il piano è un numero intero: 0 indica il piano terra, i valori negativi i piani interrati.
-- **A13.** Il controllo sull'e-mail istituzionale verifica il formato dell'indirizzo, non il dominio.
+- **A13.** Un'e-mail istituzionale ha un formato valido se non contiene spazi, contiene una sola @ con del testo prima e dopo, e la parte dopo la @ contiene almeno un punto (ad esempio m.rossi@unisa.it). Non si verifica che il dominio esista.
 - **A14.** I valori numerici dei requisiti non funzionali (sezione 3) sono stime del gruppo, basate su un dipartimento di medie dimensioni: fino a 200 aule, 500 docenti e 20.000 prenotazioni in archivio.
 - **A15.** L'elenco delle aule è ordinato per codice, perché la descrizione delle funzionalità non indica un ordinamento.
 - **A16.** L'archivio viene salvato automaticamente dopo ogni modifica, senza un comando di salvataggio esplicito, per non perdere dati se l'impiegato dimentica di salvare.
@@ -127,7 +127,7 @@ Le funzionalità individuali sono caratterizzate in base a due criteri: la prior
 |---|---|---|---|---|
 | FI2.1 | Il sistema deve consentire all'impiegato di inserire un docente indicando e-mail istituzionale, nome e cognome. | MUST HAVE | Basso | UC6 |
 | FI2.2 | Il sistema deve rifiutare l'inserimento o la modifica di un docente se la sua e-mail è già usata da un altro docente in archivio, senza distinguere maiuscole e minuscole. | MUST HAVE | Basso | UC6, UC7 |
-| FI2.3 | Il sistema deve rifiutare i dati di un docente se nome o cognome sono vuoti o se l'e-mail non ha il formato di un indirizzo valido (A13). | MUST HAVE | Basso | UC6, UC7 |
+| FI2.3 | Il sistema deve rifiutare i dati di un docente se nome o cognome sono vuoti o se l'e-mail non ha un formato valido, secondo le regole dell'assunzione A13. | MUST HAVE | Basso | UC6, UC7 |
 | FI2.4 | Il sistema deve consentire di modificare e-mail istituzionale, nome e cognome di un docente (A7). | MUST HAVE | Basso | UC7 |
 | FI2.5 | Il sistema deve consentire di cancellare un docente, dopo la conferma dell'impiegato. | MUST HAVE | Basso | UC8 |
 | FI2.6 | Il sistema deve impedire la cancellazione di un docente che ha prenotazioni future (A8). | MUST HAVE | Medio | UC8 |
@@ -156,7 +156,7 @@ Le funzionalità individuali sono caratterizzate in base a due criteri: la prior
 | FI3.13 | Il sistema deve consentire di cancellare una singola prenotazione, anche se appartiene a una serie, dopo la conferma dell'impiegato; le altre occorrenze della serie restano invariate. | MUST HAVE | Basso | UC17 |
 | FI3.14 | Il sistema deve consentire di cancellare in un'unica operazione tutte le prenotazioni future di una serie, dopo la conferma dell'impiegato; le occorrenze passate restano in archivio (A9). | MUST HAVE | Medio | UC18 |
 
-Non è prevista la modifica di una prenotazione già inserita: per cambiarne i dati la si cancella e la si inserisce di nuovo (A6).
+L'impiegato non può modificare direttamente una prenotazione già inserita: per cambiarne i dati la cancella e la inserisce di nuovo (A6). Gli aggiornamenti dovuti alla modifica di un'aula o di un docente avvengono in automatico (FI1.12, FI2.11).
 
 **FI4 – Archivio**
 
